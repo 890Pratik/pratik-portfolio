@@ -3,7 +3,7 @@ import streamlit as st
 # Page Config
 st.set_page_config(page_title="Pratik Sunar | Data Analyst", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS - Fully fixed for visibility & responsiveness
+# Custom CSS - Enhanced Contact Me button + mobile fixes
 st.markdown("""
 <style>
     .stApp {background-color: #f9f5f0;}
@@ -15,33 +15,36 @@ st.markdown("""
         margin: 30px 0;
         box-shadow: 0 0 20px rgba(0, 191, 191, 0.5);
     }
-    .social-icons {display: flex; justify-content: flex-start; gap: 30px; margin: 20px 0; flex-wrap: wrap;}
-    .social-icon {width: 40px; height: 40px; border-radius: 50%; background: #e0f7fa; padding: 10px; box-shadow: 0 0 10px rgba(0,191,191,0.3);}
-    
-    /* Fixed Contact Me button - always visible white text */
+    .social-icons {display: flex; justify-content: center; gap: 40px; margin: 30px 0; flex-wrap: wrap;}
+    .social-icon {width: 48px; height: 48px; border-radius: 50%; background: #e0f7fa; padding: 12px; box-shadow: 0 0 12px rgba(0,191,191,0.4); transition: transform 0.3s;}
+    .social-icon:hover {transform: scale(1.15);}
+
+    /* Enhanced Contact Me button - centered, glowing, modern */
     .contact-btn-container {
         text-align: center;
-        margin: 30px 0;
+        margin: 40px 0;
     }
     .contact-btn {
-        background: linear-gradient(135deg, #0066cc, #004080);
+        background: linear-gradient(135deg, #0066cc, #7b2cbf, #00a0a0);
         color: white !important;
-        padding: 15px 40px;
+        padding: 16px 50px;
         border-radius: 50px;
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         font-weight: bold;
         text-align: center;
         border: none;
         cursor: pointer;
-        box-shadow: 0 0 15px rgba(0,102,204,0.4);
-        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+        transition: all 0.4s ease;
         display: inline-block;
-        min-width: 200px;
-        text-decoration: none;
+        min-width: 240px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
     }
     .contact-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 25px rgba(0,102,204,0.6);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 35px rgba(0, 102, 204, 0.6);
+        background: linear-gradient(135deg, #0077e6, #8a4fff, #00b3b3);
     }
 
     h1 {color: #333; margin-bottom: 10px;}
@@ -147,9 +150,9 @@ st.markdown("""
         .intro-text {font-size: 1rem;}
         .skills-grid {grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));}
         .project-card {height: auto; min-height: 420px;}
-        .project-header {height: 150px;}
+        .project-header {height: 140px;}
         .project-desc {-webkit-line-clamp: 3;}
-        .contact-btn {width: 100%; max-width: 300px; padding: 12px 20px; font-size: 1.1rem;}
+        .contact-btn {width: 100%; max-width: 320px; padding: 14px 30px; font-size: 1.1rem;}
         [data-testid="stHorizontalBlock"] > div {flex-direction: column !important; gap: 20px !important;}
     }
 </style>
@@ -189,7 +192,7 @@ with col_text:
     </p>
     """, unsafe_allow_html=True)
 
-# Social Icons
+# Social Icons (centered)
 st.markdown("""
 <div class='social-icons' style='margin-top: 30px;'>
     <a href="https://www.linkedin.com/in/pratik-sunar-438323244/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="social-icon" alt="LinkedIn"></a>
@@ -199,9 +202,9 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Contact Me Button - Now using native st.button for guaranteed visibility
+# Enhanced centered Contact Me button
 st.markdown('<div class="contact-btn-container">', unsafe_allow_html=True)
-if st.button("Contact Me", key="contact_btn", help="Scroll to contact section"):
+if st.button("Contact Me", key="contact_btn_main", help="Scroll to contact section"):
     st.markdown('<script>window.location.href="#contact";</script>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -224,7 +227,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Projects Section
+# Projects Section (your original - unchanged)
 st.markdown("<div class='section-card' id='projects'><h2>Projects</h2>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
@@ -282,7 +285,7 @@ with col3:
     </div>
     """, unsafe_allow_html=True)
 
-# Row 2 (unchanged)
+# Row 2
 col4, col5, col6 = st.columns(3)
 with col4:
     st.markdown(f"""
@@ -340,7 +343,7 @@ with col6:
 
 st.markdown("</div>", unsafe_allow_html=True)
 
-# Skills Section (unchanged - your original code here)
+# Skills Section (your original - no change)
 st.markdown("""
 <div class='section-card'>
     <h2>Skills</h2>
@@ -355,7 +358,51 @@ st.markdown("""
             <div class='skill-name'>PostgreSQL</div>
             <span class='tooltiptext'>Advanced<br>Complex queries, CTEs, Window functions, Joins</span>
         </div>
-        <!-- rest of your skills items -->
+        <div class='skill-item tooltip'>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" class="skill-logo" alt="Power BI">
+            <div class='skill-name'>Power BI</div>
+            <span class='tooltiptext'>Advanced<br>DAX, Power Query, Interactive Dashboards</span>
+        </div>
+        <div class='skill-item tooltip'>
+            <img src="https://www.logo.wine/a/logo/Amazon_Web_Services/Amazon_Web_Services-Logo.wine.svg" class="skill-logo" alt="AWS">
+            <div class='skill-name'>AWS</div>
+            <span class='tooltiptext'>Proficient<br>S3, Lambda, Bedrock, Transcribe, Step Functions</span>
+        </div>
+        <div class='skill-item tooltip'>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Amazon-S3-Logo.svg" class="skill-logo" alt="Amazon S3">
+            <div class='skill-name'>Amazon S3</div>
+            <span class='tooltiptext'>Proficient<br>Data storage & retrieval for analytics</span>
+        </div>
+        <div class='skill-item tooltip'>
+            <img src="https://cdn.worldvectorlogo.com/logos/aws-lambda-1.svg" class="skill-logo" alt="AWS Lambda">
+            <div class='skill-name'>AWS Lambda</div>
+            <span class='tooltiptext'>Proficient<br>Serverless functions for automation</span>
+        </div>
+        <div class='skill-item tooltip'>
+            <img src="https://cms.article-factory.ai/wp-content/uploads/2023/04/amazon-bedrock.png" class="skill-logo" alt="Amazon Bedrock">
+            <div class='skill-name'>Amazon Bedrock</div>
+            <span class='tooltiptext'>Proficient<br>LLM integration (Haiku) for call analytics</span>
+        </div>
+        <div class='skill-item tooltip'>
+            <img src="https://logos-world.net/wp-content/uploads/2022/02/Microsoft-Excel-Logo.png" class="skill-logo" alt="Excel">
+            <div class='skill-name'>Excel & VBA</div>
+            <span class='tooltiptext'>Advanced<br>Pivot tables, advanced formulas, VBA automation</span>
+        </div>
+        <div class='skill-item tooltip'>
+            <img src="https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png" class="skill-logo" alt="Streamlit">
+            <div class='skill-name'>Streamlit</div>
+            <span class='tooltiptext'>Advanced<br>Interactive web apps & dashboards</span>
+        </div>
+        <div class='skill-item tooltip'>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" class="skill-logo" alt="Git">
+            <div class='skill-name'>Git</div>
+            <span class='tooltiptext'>Proficient<br>Version control & collaboration</span>
+        </div>
+        <div class='skill-item tooltip'>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="skill-logo" alt="Docker">
+            <div class='skill-name'>Docker</div>
+            <span class='tooltiptext'>Intermediate<br>Containerization for deployment</span>
+        </div>
     </div>
 </div>
 
