@@ -3,7 +3,7 @@ import streamlit as st
 # Page Config
 st.set_page_config(page_title="Pratik Sunar | Data Analyst", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS - Enhanced Contact Me button + smooth scroll
+# Custom CSS (unchanged)
 st.markdown("""
 <style>
     .stApp {background-color: #f9f5f0;}
@@ -15,83 +15,105 @@ st.markdown("""
         margin: 30px 0;
         box-shadow: 0 0 20px rgba(0, 191, 191, 0.5);
     }
-    .social-icons {display: flex; justify-content: center; gap: 40px; margin: 30px 0; flex-wrap: wrap;}
-    .social-icon {width: 48px; height: 48px; border-radius: 50%; background: #e0f7fa; padding: 12px; box-shadow: 0 0 12px rgba(0,191,191,0.4); transition: transform 0.3s;}
-    .social-icon:hover {transform: scale(1.15);}
-
-    /* Enhanced Contact Me button */
-    .contact-btn-container {
-        text-align: center;
-        margin: 50px 0;
-    }
+    .social-icons {display: flex; justify-content: flex-start; gap: 30px; margin: 20px 0;}
+    .social-icon {width: 40px; height: 40px; border-radius: 50%; background: #e0f7fa; padding: 10px; box-shadow: 0 0 10px rgba(0,191,191,0.3);}
     .contact-btn {
-        background: linear-gradient(135deg, #0066cc, #7b2cbf, #00a0a0);
-        color: white !important;
-        padding: 18px 60px;
+        background: linear-gradient(135deg, #0066cc, #004080);
+        color: white;
+        padding: 15px 40px;
         border-radius: 50px;
-        font-size: 1.3rem;
-        font-weight: bold;
+        font-size: 1.2rem;
         text-align: center;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 10px 30px rgba(0, 102, 204, 0.5);
-        transition: all 0.4s ease;
-        display: inline-block;
-        min-width: 280px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        position: relative;
-        overflow: hidden;
+        display: block;
+        width: 200px;
+        margin: 30px auto;
+        text-decoration: none;
+        box-shadow: 0 0 15px rgba(0,102,204,0.4);
     }
-    .contact-btn:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 15px 40px rgba(0, 102, 204, 0.7);
-        background: linear-gradient(135deg, #0077e6, #8a4fff, #00b3b3);
-    }
-    .contact-btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-        transition: 0.6s;
-    }
-    .contact-btn:hover::before {
-        left: 100%;
-    }
-
     h1 {color: #333; margin-bottom: 10px;}
     h2 {text-align: center; color: #00a0a0; margin-bottom: 20px;}
     ul {text-align: left; max-width: 700px; margin: auto; list-style-type: disc;}
     li {margin-bottom: 10px;}
     .project-link {color: #00a0a0; text-decoration: none;}
-    .intro-text {
-        font-size: 1.1rem; 
-        line-height: 1.6; 
+    .intro-text {font-size: 1.1rem; line-height: 1.6; color: #555;}
+
+    /* Skills Grid */
+    .skills-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-top: 30px;}
+    .skill-item {text-align: center;}
+    .skill-logo {width: 60px; height: 60px; margin-bottom: 10px;}
+    .skill-name {font-weight: bold; color: #333;}
+
+    /* Project Card Styles */
+    .project-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        transition: transform 0.3s ease;
+        height: 420px;
+        display: flex;
+        flex-direction: column;
+    }
+    .project-card:hover {
+        transform: translateY(-8px);
+    }
+    .project-header {
+        position: relative;
+        height: 180px;
+    }
+    .project-header img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .project-title {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0,0,0,0.7);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    .project-body {
+        padding: 15px;
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .project-subtitle {
+        font-weight: bold;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+    .project-desc {
+        font-size: 0.8rem;
         color: #555;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
+        line-height: 1.4;
+        margin-bottom: 10px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
     }
-
-    /* Smooth scroll behavior */
-    html {
-        scroll-behavior: smooth;
+    .see-work-btn {
+        background: #00a0a0;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 8px 25px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin: 10px auto 0;
     }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-        .main-container {padding: 10px;}
-        .section-card {padding: 20px;}
-        .intro-text {font-size: 1rem;}
-        .skills-grid {grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));}
-        .project-card {height: auto; min-height: 420px;}
-        .project-header {height: 140px;}
-        .project-desc {-webkit-line-clamp: 3;}
-        .contact-btn {width: 100%; max-width: 320px; padding: 14px 30px; font-size: 1.1rem;}
-        [data-testid="stHorizontalBlock"] > div {flex-direction: column !important; gap: 20px !important;}
+    .tool-icon {
+        width: 40px;
+        height: 40px;
+        margin: 10px auto 0;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -120,19 +142,13 @@ with col_text:
     st.markdown("<h1 style='margin-top: 40px; color: #333;'>Pratik Sunar</h1>", unsafe_allow_html=True)
     st.markdown("""
     <p class='intro-text'>
-    Data Analyst with hands-on experience in Data science, Machine learning, and Business intelligence in Insurance and Pharmaceutical sectors.
-    </p>
-    <p class='intro-text'>
-    Skilled in SQL, Python, Power BI, Excel, Streamlit and AWS. During recent Internship at VHI Group DAC gained experience in customer call analytics using AWS cloud services, enhancing logic for Outlier Claims model (OCM), implementing Oracle PL/SQL and VBA solutions that automated client reporting and enhanced operational efficiency.
-    </p>
-    <p class='intro-text'>
-    Proven ability to query multi-million-row datasets and build interactive dashboards. An academic foundation in Statistics and Data Analytics, combined with practical exposure to real-world data challenges. Currently based in Ireland with Stamp 1G eligible to work in Ireland.
+    Data Analyst with hands-on experience in Data science, Machine learning, and Business intelligence in Insurance and Pharmaceutical sectors. Skilled in SQL, Python, Power BI, Excel, Streamlit and AWS. During recent Internship at VHI Group DAC gained experience in customer call analytics using AWS cloud services, enhancing logic for Outlier Claims model (OCM), implementing Oracle PL/SQL and VBA solutions that automated client reporting and enhanced operational efficiency. Proven ability to query multi-million-row datasets and build interactive dashboards. An academic foundation in Statistics and Data Analytics, combined with practical exposure to real-world data challenges. Currently based in Ireland with Stamp 1G eligible to work in Ireland.
     </p>
     """, unsafe_allow_html=True)
 
-# Social Icons (centered)
+# Social Icons + Contact Button
 st.markdown("""
-<div class='social-icons'>
+<div class='social-icons' style='margin-top: 30px;'>
     <a href="https://www.linkedin.com/in/pratik-sunar-438323244/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="social-icon" alt="LinkedIn"></a>
     <a href="https://github.com/890Pratik"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="social-icon" alt="GitHub"></a>
     <a href="mailto:pratiksunar0899.ie@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="social-icon" alt="Mail"></a>
@@ -140,22 +156,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Enhanced centered Contact Me button
-st.markdown('<div class="contact-btn-container">', unsafe_allow_html=True)
-if st.button("Contact Me", key="contact_btn_enhanced", help="Scroll to contact section"):
-    # Smooth scroll to contact section
-    st.markdown(
-        """
-        <script>
-            const element = document.getElementById('contact');
-            if (element) {
-                element.scrollIntoView({behavior: 'smooth'});
-            }
-        </script>
-        """,
-        unsafe_allow_html=True
-    )
-st.markdown('</div>', unsafe_allow_html=True)
+st.markdown('<a href="#contact" class="contact-btn">Contact Me</a>', unsafe_allow_html=True)
 
 # Experience Section
 st.markdown("""
@@ -176,7 +177,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Projects Section (unchanged)
+# Projects Section - AtliQ Hardware project with your GitHub image
 st.markdown("<div class='section-card' id='projects'><h2>Projects</h2>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
@@ -292,7 +293,7 @@ with col6:
 
 st.markdown("</div>", unsafe_allow_html=True)
 
-# Skills Section (unchanged)
+# Skills Section
 st.markdown("""
 <div class='section-card'>
     <h2>Skills</h2>
@@ -323,7 +324,7 @@ st.markdown("""
             <span class='tooltiptext'>Proficient<br>Data storage & retrieval for analytics</span>
         </div>
         <div class='skill-item tooltip'>
-            <img src="https://cdn.worldvectorlogo.com/logos/aws-lambda-1.svg" class="skill-logo" alt="AWS Lambda">
+            <img src="https://cdn.worldvectorlogo.com/logos/aws-lambda-1.svg" class="tool-icon" alt="AWS Lambda">
             <div class='skill-name'>AWS Lambda</div>
             <span class='tooltiptext'>Proficient<br>Serverless functions for automation</span>
         </div>
