@@ -3,7 +3,7 @@ import streamlit as st
 # Page Config
 st.set_page_config(page_title="Pratik Sunar | Data Analyst", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS (enhanced for mobile responsiveness and text wrapping)
+# Custom CSS (your original + enhanced Contact Me button + smooth scroll)
 st.markdown("""
 <style>
     .stApp {background-color: #f9f5f0;}
@@ -17,19 +17,48 @@ st.markdown("""
     }
     .social-icons {display: flex; justify-content: flex-start; gap: 30px; margin: 20px 0;}
     .social-icon {width: 40px; height: 40px; border-radius: 50%; background: #e0f7fa; padding: 10px; box-shadow: 0 0 10px rgba(0,191,191,0.3);}
-    .contact-btn {
-        background: linear-gradient(135deg, #0066cc, #004080);
-        color: white;
-        padding: 15px 40px;
-        border-radius: 50px;
-        font-size: 1.2rem;
+    .contact-btn-container {
         text-align: center;
-        display: block;
-        width: 200px;
-        margin: 30px auto;
-        text-decoration: none;
-        box-shadow: 0 0 15px rgba(0,102,204,0.4);
+        margin: 40px 0;
     }
+    .contact-btn {
+        background: linear-gradient(135deg, #0066cc, #7b2cbf, #00a0a0);
+        color: white !important;
+        padding: 18px 60px;
+        border-radius: 50px;
+        font-size: 1.35rem;
+        font-weight: bold;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(0, 102, 204, 0.5);
+        transition: all 0.4s ease;
+        display: inline-block;
+        min-width: 280px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        position: relative;
+        overflow: hidden;
+    }
+    .contact-btn:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 40px rgba(0, 102, 204, 0.7);
+        background: linear-gradient(135deg, #0077e6, #8a4fff, #00b3b3);
+    }
+    .contact-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: 0.6s;
+    }
+    .contact-btn:hover::before {
+        left: 100%;
+    }
+
     h1 {color: #333; margin-bottom: 10px;}
     h2 {text-align: center; color: #00a0a0; margin-bottom: 20px;}
     ul {text-align: left; max-width: 700px; margin: auto; list-style-type: disc;}
@@ -44,13 +73,18 @@ st.markdown("""
         hyphens: auto;
     }
 
+    /* Smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+
     /* Skills Grid */
     .skills-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-top: 30px;}
     .skill-item {text-align: center;}
     .skill-logo {width: 60px; height: 60px; margin-bottom: 10px;}
     .skill-name {font-weight: bold; color: #333;}
 
-    /* Project Card Styles */
+    /* Project Card Styles - unchanged */
     .project-card {
         background: white;
         border-radius: 15px;
@@ -135,8 +169,8 @@ st.markdown("""
         .project-card {height: auto; min-height: 420px;}
         .project-header {height: 150px;}
         .project-desc {-webkit-line-clamp: 3;}
-        .contact-btn {width: 100%; max-width: 200px;}
-        [class*="st-"] {flex-direction: column !important; gap: 20px !important;}
+        .contact-btn {width: 100%; max-width: 320px; padding: 14px 30px; font-size: 1.1rem;}
+        [data-testid="stHorizontalBlock"] > div {flex-direction: column !important; gap: 20px !important;}
     }
 </style>
 """, unsafe_allow_html=True)
@@ -175,7 +209,7 @@ with col_text:
     </p>
     """, unsafe_allow_html=True)
 
-# Social Icons + Contact Button
+# Social Icons + Enhanced Contact Me button
 st.markdown("""
 <div class='social-icons' style='margin-top: 30px;'>
     <a href="https://www.linkedin.com/in/pratik-sunar-438323244/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="social-icon" alt="LinkedIn"></a>
@@ -185,9 +219,23 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown('<a href="#contact" class="contact-btn">Contact Me</a>', unsafe_allow_html=True)
+# Enhanced centered Contact Me button with smooth scroll
+st.markdown('<div class="contact-btn-container">', unsafe_allow_html=True)
+if st.button("Contact Me", key="contact_btn_enhanced", help="Scroll to contact section"):
+    st.markdown(
+        """
+        <script>
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        </script>
+        """,
+        unsafe_allow_html=True
+    )
+st.markdown('</div>', unsafe_allow_html=True)
 
-# Experience Section
+# Experience Section (unchanged)
 st.markdown("""
 <div class='section-card'>
     <h2>Experience</h2>
@@ -206,7 +254,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Projects Section - AtliQ Hardware project with your GitHub image
+# Projects Section - exactly your original layout (no changes here)
 st.markdown("<div class='section-card' id='projects'><h2>Projects</h2>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
@@ -264,7 +312,7 @@ with col3:
     </div>
     """, unsafe_allow_html=True)
 
-# Row 2
+# Row 2 - unchanged
 col4, col5, col6 = st.columns(3)
 with col4:
     st.markdown(f"""
@@ -322,7 +370,7 @@ with col6:
 
 st.markdown("</div>", unsafe_allow_html=True)
 
-# Skills Section
+# Skills Section (unchanged)
 st.markdown("""
 <div class='section-card'>
     <h2>Skills</h2>
@@ -455,7 +503,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Education Section
+# Education Section (unchanged)
 st.markdown("""
 <div class='section-card'>
     <h2>Education</h2>
