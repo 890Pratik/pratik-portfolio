@@ -3,7 +3,7 @@ import streamlit as st
 # Page Config
 st.set_page_config(page_title="Pratik Sunar | Data Analyst", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS (your original + enhanced Contact Me button + smooth scroll)
+# Custom CSS - your original + enhanced Contact Me button only
 st.markdown("""
 <style>
     .stApp {background-color: #f9f5f0;}
@@ -17,9 +17,11 @@ st.markdown("""
     }
     .social-icons {display: flex; justify-content: flex-start; gap: 30px; margin: 20px 0;}
     .social-icon {width: 40px; height: 40px; border-radius: 50%; background: #e0f7fa; padding: 10px; box-shadow: 0 0 10px rgba(0,191,191,0.3);}
+    
+    /* Enhanced Contact Me button - centered, modern, glowing */
     .contact-btn-container {
         text-align: center;
-        margin: 40px 0;
+        margin: 50px 0 40px 0;
     }
     .contact-btn {
         background: linear-gradient(135deg, #0066cc, #7b2cbf, #00a0a0);
@@ -31,10 +33,10 @@ st.markdown("""
         text-align: center;
         border: none;
         cursor: pointer;
-        box-shadow: 0 10px 30px rgba(0, 102, 204, 0.5);
+        box-shadow: 0 12px 35px rgba(0, 102, 204, 0.5);
         transition: all 0.4s ease;
         display: inline-block;
-        min-width: 280px;
+        min-width: 300px;
         letter-spacing: 1px;
         text-transform: uppercase;
         position: relative;
@@ -42,8 +44,8 @@ st.markdown("""
     }
     .contact-btn:hover {
         transform: translateY(-6px);
-        box-shadow: 0 15px 40px rgba(0, 102, 204, 0.7);
-        background: linear-gradient(135deg, #0077e6, #8a4fff, #00b3b3);
+        box-shadow: 0 18px 50px rgba(0, 102, 204, 0.7);
+        background: linear-gradient(135deg, #0077e6, #8a4fff, #00d4d4);
     }
     .contact-btn::before {
         content: '';
@@ -52,8 +54,8 @@ st.markdown("""
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-        transition: 0.6s;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: 0.7s;
     }
     .contact-btn:hover::before {
         left: 100%;
@@ -73,12 +75,7 @@ st.markdown("""
         hyphens: auto;
     }
 
-    /* Smooth scroll behavior */
-    html {
-        scroll-behavior: smooth;
-    }
-
-    /* Skills Grid */
+    /* Skills Grid - unchanged */
     .skills-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-top: 30px;}
     .skill-item {text-align: center;}
     .skill-logo {width: 60px; height: 60px; margin-bottom: 10px;}
@@ -170,7 +167,6 @@ st.markdown("""
         .project-header {height: 150px;}
         .project-desc {-webkit-line-clamp: 3;}
         .contact-btn {width: 100%; max-width: 320px; padding: 14px 30px; font-size: 1.1rem;}
-        [data-testid="stHorizontalBlock"] > div {flex-direction: column !important; gap: 20px !important;}
     }
 </style>
 """, unsafe_allow_html=True)
@@ -219,7 +215,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Enhanced centered Contact Me button with smooth scroll
+# Enhanced Contact Me button (centered, smooth scroll)
 st.markdown('<div class="contact-btn-container">', unsafe_allow_html=True)
 if st.button("Contact Me", key="contact_btn_enhanced", help="Scroll to contact section"):
     st.markdown(
@@ -254,7 +250,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Projects Section - exactly your original layout (no changes here)
+# Projects Section - exactly your original layout (no changes)
 st.markdown("<div class='section-card' id='projects'><h2>Projects</h2>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
@@ -312,7 +308,7 @@ with col3:
     </div>
     """, unsafe_allow_html=True)
 
-# Row 2 - unchanged
+# Row 2 (unchanged)
 col4, col5, col6 = st.columns(3)
 with col4:
     st.markdown(f"""
