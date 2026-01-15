@@ -3,7 +3,7 @@ import streamlit as st
 # Page Config
 st.set_page_config(page_title="Pratik Sunar | Data Analyst", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS - Enhanced Contact Me button + mobile fixes
+# Custom CSS - Enhanced Contact Me button + smooth scroll
 st.markdown("""
 <style>
     .stApp {background-color: #f9f5f0;}
@@ -19,32 +19,47 @@ st.markdown("""
     .social-icon {width: 48px; height: 48px; border-radius: 50%; background: #e0f7fa; padding: 12px; box-shadow: 0 0 12px rgba(0,191,191,0.4); transition: transform 0.3s;}
     .social-icon:hover {transform: scale(1.15);}
 
-    /* Enhanced Contact Me button - centered, glowing, modern */
+    /* Enhanced Contact Me button */
     .contact-btn-container {
         text-align: center;
-        margin: 40px 0;
+        margin: 50px 0;
     }
     .contact-btn {
         background: linear-gradient(135deg, #0066cc, #7b2cbf, #00a0a0);
         color: white !important;
-        padding: 16px 50px;
+        padding: 18px 60px;
         border-radius: 50px;
-        font-size: 1.25rem;
+        font-size: 1.3rem;
         font-weight: bold;
         text-align: center;
         border: none;
         cursor: pointer;
-        box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+        box-shadow: 0 10px 30px rgba(0, 102, 204, 0.5);
         transition: all 0.4s ease;
         display: inline-block;
-        min-width: 240px;
-        letter-spacing: 0.5px;
+        min-width: 280px;
+        letter-spacing: 1px;
         text-transform: uppercase;
+        position: relative;
+        overflow: hidden;
     }
     .contact-btn:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 35px rgba(0, 102, 204, 0.6);
+        transform: translateY(-6px);
+        box-shadow: 0 15px 40px rgba(0, 102, 204, 0.7);
         background: linear-gradient(135deg, #0077e6, #8a4fff, #00b3b3);
+    }
+    .contact-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: 0.6s;
+    }
+    .contact-btn:hover::before {
+        left: 100%;
     }
 
     h1 {color: #333; margin-bottom: 10px;}
@@ -61,86 +76,9 @@ st.markdown("""
         hyphens: auto;
     }
 
-    /* Skills Grid */
-    .skills-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-top: 30px;}
-    .skill-item {text-align: center;}
-    .skill-logo {width: 60px; height: 60px; margin-bottom: 10px;}
-    .skill-name {font-weight: bold; color: #333;}
-
-    /* Project Card Styles */
-    .project-card {
-        background: white;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        transition: transform 0.3s ease;
-        height: 420px;
-        display: flex;
-        flex-direction: column;
-    }
-    .project-card:hover {
-        transform: translateY(-8px);
-    }
-    .project-header {
-        position: relative;
-        height: 180px;
-    }
-    .project-header img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .project-title {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background: rgba(0,0,0,0.7);
-        color: white;
-        padding: 8px 15px;
-        border-radius: 8px;
-        font-size: 1.1rem;
-        font-weight: bold;
-    }
-    .project-body {
-        padding: 15px;
-        text-align: center;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .project-subtitle {
-        font-weight: bold;
-        font-size: 0.95rem;
-        margin-bottom: 8px;
-    }
-    .project-desc {
-        font-size: 0.8rem;
-        color: #555;
-        line-height: 1.4;
-        margin-bottom: 10px;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-    }
-    .see-work-btn {
-        background: #00a0a0;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        padding: 8px 25px;
-        font-size: 0.9rem;
-        cursor: pointer;
-        margin: 10px auto 0;
-    }
-    .tool-icon {
-        width: 40px;
-        height: 40px;
-        margin: 10px auto 0;
+    /* Smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
     }
 
     /* Mobile Responsiveness */
@@ -194,7 +132,7 @@ with col_text:
 
 # Social Icons (centered)
 st.markdown("""
-<div class='social-icons' style='margin-top: 30px;'>
+<div class='social-icons'>
     <a href="https://www.linkedin.com/in/pratik-sunar-438323244/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="social-icon" alt="LinkedIn"></a>
     <a href="https://github.com/890Pratik"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="social-icon" alt="GitHub"></a>
     <a href="mailto:pratiksunar0899.ie@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="social-icon" alt="Mail"></a>
@@ -204,8 +142,19 @@ st.markdown("""
 
 # Enhanced centered Contact Me button
 st.markdown('<div class="contact-btn-container">', unsafe_allow_html=True)
-if st.button("Contact Me", key="contact_btn_main", help="Scroll to contact section"):
-    st.markdown('<script>window.location.href="#contact";</script>', unsafe_allow_html=True)
+if st.button("Contact Me", key="contact_btn_enhanced", help="Scroll to contact section"):
+    # Smooth scroll to contact section
+    st.markdown(
+        """
+        <script>
+            const element = document.getElementById('contact');
+            if (element) {
+                element.scrollIntoView({behavior: 'smooth'});
+            }
+        </script>
+        """,
+        unsafe_allow_html=True
+    )
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Experience Section
@@ -227,7 +176,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Projects Section (your original - unchanged)
+# Projects Section (unchanged)
 st.markdown("<div class='section-card' id='projects'><h2>Projects</h2>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
@@ -343,7 +292,7 @@ with col6:
 
 st.markdown("</div>", unsafe_allow_html=True)
 
-# Skills Section (your original - no change)
+# Skills Section (unchanged)
 st.markdown("""
 <div class='section-card'>
     <h2>Skills</h2>
