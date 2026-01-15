@@ -3,7 +3,7 @@ import streamlit as st
 # Page Config
 st.set_page_config(page_title="Pratik Sunar | Data Analyst", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS (unchanged)
+# Custom CSS (enhanced for mobile responsiveness and text wrapping)
 st.markdown("""
 <style>
     .stApp {background-color: #f9f5f0;}
@@ -35,7 +35,14 @@ st.markdown("""
     ul {text-align: left; max-width: 700px; margin: auto; list-style-type: disc;}
     li {margin-bottom: 10px;}
     .project-link {color: #00a0a0; text-decoration: none;}
-    .intro-text {font-size: 1.1rem; line-height: 1.6; color: #555;}
+    .intro-text {
+        font-size: 1.1rem; 
+        line-height: 1.6; 
+        color: #555;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
 
     /* Skills Grid */
     .skills-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-top: 30px;}
@@ -99,6 +106,9 @@ st.markdown("""
         display: -webkit-box;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
     }
     .see-work-btn {
         background: #00a0a0;
@@ -114,6 +124,19 @@ st.markdown("""
         width: 40px;
         height: 40px;
         margin: 10px auto 0;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .main-container {padding: 10px;}
+        .section-card {padding: 20px;}
+        .intro-text {font-size: 1rem;}
+        .skills-grid {grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));}
+        .project-card {height: auto; min-height: 420px;}
+        .project-header {height: 150px;}
+        .project-desc {-webkit-line-clamp: 3;}
+        .contact-btn {width: 100%; max-width: 200px;}
+        [class*="st-"] {flex-direction: column !important; gap: 20px !important;}
     }
 </style>
 """, unsafe_allow_html=True)
@@ -142,7 +165,13 @@ with col_text:
     st.markdown("<h1 style='margin-top: 40px; color: #333;'>Pratik Sunar</h1>", unsafe_allow_html=True)
     st.markdown("""
     <p class='intro-text'>
-    Data Analyst with hands-on experience in Data science, Machine learning, and Business intelligence in Insurance and Pharmaceutical sectors. Skilled in SQL, Python, Power BI, Excel, Streamlit and AWS. During recent Internship at VHI Group DAC gained experience in customer call analytics using AWS cloud services, enhancing logic for Outlier Claims model (OCM), implementing Oracle PL/SQL and VBA solutions that automated client reporting and enhanced operational efficiency. Proven ability to query multi-million-row datasets and build interactive dashboards. An academic foundation in Statistics and Data Analytics, combined with practical exposure to real-world data challenges. Currently based in Ireland with Stamp 1G eligible to work in Ireland.
+    Data Analyst with hands-on experience in Data science, Machine learning, and Business intelligence in Insurance and Pharmaceutical sectors.
+    </p>
+    <p class='intro-text'>
+    Skilled in SQL, Python, Power BI, Excel, Streamlit and AWS. During recent Internship at VHI Group DAC gained experience in customer call analytics using AWS cloud services, enhancing logic for Outlier Claims model (OCM), implementing Oracle PL/SQL and VBA solutions that automated client reporting and enhanced operational efficiency.
+    </p>
+    <p class='intro-text'>
+    Proven ability to query multi-million-row datasets and build interactive dashboards. An academic foundation in Statistics and Data Analytics, combined with practical exposure to real-world data challenges. Currently based in Ireland with Stamp 1G eligible to work in Ireland.
     </p>
     """, unsafe_allow_html=True)
 
@@ -324,7 +353,7 @@ st.markdown("""
             <span class='tooltiptext'>Proficient<br>Data storage & retrieval for analytics</span>
         </div>
         <div class='skill-item tooltip'>
-            <img src="https://cdn.worldvectorlogo.com/logos/aws-lambda-1.svg" class="tool-icon" alt="AWS Lambda">
+            <img src="https://cdn.worldvectorlogo.com/logos/aws-lambda-1.svg" class="skill-logo" alt="AWS Lambda">
             <div class='skill-name'>AWS Lambda</div>
             <span class='tooltiptext'>Proficient<br>Serverless functions for automation</span>
         </div>
