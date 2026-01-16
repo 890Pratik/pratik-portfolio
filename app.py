@@ -138,6 +138,12 @@ st.markdown("""
         .contact-btn {width: 100%; max-width: 200px;}
         [class*="st-"] {flex-direction: column !important; gap: 20px !important;}
     }
+
+    /* Improved indentation for nested lists in Education */
+    .education-nested {
+        margin-left: 30px;
+        list-style-type: circle;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -187,21 +193,21 @@ st.markdown("""
 
 st.markdown('<a href="#contact" class="contact-btn">Contact Me</a>', unsafe_allow_html=True)
 
-# Experience Section - all text bold
+# Experience Section (unchanged)
 st.markdown("""
 <div class='section-card'>
     <h2>Experience</h2>
-    <h3><strong>VHI Group DAC – Data Analyst Intern | Dublin, Ireland | May 2025 – Aug 2025</strong></h3>
+    <h3>VHI Group DAC – Data Analyst Intern | Dublin, Ireland | May 2025 – Aug 2025</h3>
     <ul>
-        <li><strong>Analyzed 30k healthcare and drug claims records to identify drug dosage anomalies across Hospitals in Ireland, enhancing the Outlier Claims Model</strong></li>
-        <li><strong>Applied Anthropic’s Haiku LLM on 2,000+ customer call transcripts using AWS workflow (S3, Lambda, Transcribe, Bedrock), uncovering key insights for Cancellations and travel related calls</strong></li>
-        <li><strong>Automated reporting using VBA and Oracle PL/SQL, improving workflow efficiency and maintaining strong data governance</strong></li>
+        <li>Analyzed 30k healthcare and drug claims records to identify drug dosage anomalies across Hospitals in Ireland, enhancing the Outlier Claims Model</li>
+        <li>Applied Anthropic’s Haiku LLM on 2,000+ customer call transcripts using AWS workflow (S3, Lambda, Transcribe, Bedrock), uncovering key insights for Cancellations and travel related calls</li>
+        <li>Automated reporting using VBA and Oracle PL/SQL, improving workflow efficiency and maintaining strong data governance</li>
     </ul>
-    <h3><strong>Alembic Pharmaceutical – Market Data Analyst | Shillong, India | Dec 2022 – Jul 2023</strong></h3>
+    <h3>Alembic Pharmaceutical – Market Data Analyst | Shillong, India | Dec 2022 – Jul 2023</h3>
     <ul>
-        <li><strong>Analyzed regional prescription and sales data for Azithral and Leveta-M to identify usage patterns, target segments, and high-potential prescribers</strong></li>
-        <li><strong>Applied statistical analysis and machine learning techniques (clustering, regression) to evaluate prescription behavior and guide promotional strategies</strong></li>
-        <li><strong>Collaborated with sales and marketing teams to align data-driven insights with business strategy, contributing to a 110% quarterly growth</strong></li>
+        <li>Analyzed regional prescription and sales data for Azithral and Leveta-M to identify usage patterns, target segments, and high-potential prescribers</li>
+        <li>Applied statistical analysis and machine learning techniques (clustering, regression) to evaluate prescription behavior and guide promotional strategies</li>
+        <li>Collaborated with sales and marketing teams to align data-driven insights with business strategy, contributing to a 110% quarterly growth</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
@@ -353,7 +359,7 @@ st.markdown("""
             <span class='tooltiptext'>Proficient<br>Data storage & retrieval for analytics</span>
         </div>
         <div class='skill-item tooltip'>
-            <img src="https://cdn.worldvectorlogo.com/logos/aws-lambda-1.svg" class="skill-logo" alt="AWS Lambda">
+            <img src="https://cdn.worldvectorlogo.com/logos/aws-lambda-1.svg" class="tool-icon" alt="AWS Lambda">
             <div class='skill-name'>AWS Lambda</div>
             <span class='tooltiptext'>Proficient<br>Serverless functions for automation</span>
         </div>
@@ -455,35 +461,37 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Education Section - all text bold
+# Education Section - properly indented with bold headings
 st.markdown("""
 <div class='section-card'>
     <h2>Education</h2>
     <ul>
         <li><strong>MSc in Data Analytics</strong></li>
-        <li><strong>National College of Ireland | Sept 2024 – Oct 2025</strong></li>
-        <li><strong>Modules: Statistics, Data Governance, Business Intelligence, Machine Learning, Deep Learning, Generative AI</strong></li>
-        <li><strong>Research: Enhancing Short-Term Solar Irradiance Prediction Accuracy with SARIMA-LSTM and XGBoost: A Case Study Using the UNISOLAR Dataset</strong></li>
-    </ul>
-    <ul>
+        <ul class="education-nested">
+            <li><strong>National College of Ireland</strong> | Sept 2024 – Oct 2025</li>
+            <li><strong>Modules:</strong> Statistics, Data Governance, Business Intelligence, Machine Learning, Deep Learning, Generative AI</li>
+            <li><strong>Research:</strong> Enhancing Short-Term Solar Irradiance Prediction Accuracy with SARIMA-LSTM and XGBoost: A Case Study Using the UNISOLAR Dataset</li>
+        </ul>
         <li><strong>BSc in Statistics (Hons)</strong></li>
-        <li><strong>St. Anthony’s College | Graduated 2021</strong></li>
+        <ul class="education-nested">
+            <li><strong>St. Anthony’s College</strong> | Graduated 2021</li>
+        </ul>
     </ul>
     <h3><strong>Certifications</strong></h3>
     <ul>
-        <li><strong>Data Analytics Bootcamp | Great Learning | Feb 2024</strong></li>
-        <li><strong>Excel, SQL and Power BI | Codebasics | Sep 2023 - Apr 2024</strong></li>
+        <li><strong>Data Analytics Bootcamp</strong> | Great Learning | Feb 2024</li>
+        <li><strong>Excel, SQL and Power BI</strong> | Codebasics | Sep 2023 - Apr 2024</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
-# Contact Section - all text bold
+# Contact Section (unchanged)
 st.markdown("""
 <div class='section-card' id='contact'>
     <h2>Contact</h2>
-    <p><strong>📧 pratiksunar0899.ie@gmail.com</strong></p>
-    <p><strong>📞 +353 83 853 8913</strong></p>
-    <p><strong>📍 Dublin, Ireland | Stamp 1G</strong></p>
+    <p>📧 pratiksunar0899.ie@gmail.com</p>
+    <p>📞 +353 83 853 8913</p>
+    <p>📍 Dublin, Ireland | Stamp 1G</p>
 </div>
 """, unsafe_allow_html=True)
 
