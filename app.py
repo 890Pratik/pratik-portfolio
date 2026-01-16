@@ -1,10 +1,9 @@
-
 import streamlit as st
 
 # Page Config
 st.set_page_config(page_title="Pratik Sunar | Data Analyst", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS (enhanced for mobile responsiveness and text wrapping)
+# Custom CSS (your original with mobile responsiveness)
 st.markdown("""
 <style>
     .stApp {background-color: #f9f5f0;}
@@ -188,26 +187,26 @@ st.markdown("""
 
 st.markdown('<a href="#contact" class="contact-btn">Contact Me</a>', unsafe_allow_html=True)
 
-# Experience Section
+# Experience Section - all text bold
 st.markdown("""
 <div class='section-card'>
     <h2>Experience</h2>
-    <h3>VHI Group DAC – Data Analyst Intern | Dublin, Ireland | May 2025 – Aug 2025</h3>
+    <h3><strong>VHI Group DAC – Data Analyst Intern | Dublin, Ireland | May 2025 – Aug 2025</strong></h3>
     <ul>
-        <li>Analyzed 30k healthcare and drug claims records to identify drug dosage anomalies across Hospitals in Ireland, enhancing the Outlier Claims Model</li>
-        <li>Applied Anthropic’s Haiku LLM on 2,000+ customer call transcripts using AWS workflow (S3, Lambda, Transcribe, Bedrock), uncovering key insights for Cancellations and travel related calls</li>
-        <li>Automated reporting using VBA and Oracle PL/SQL, improving workflow efficiency and maintaining strong data governance</li>
+        <li><strong>Analyzed 30k healthcare and drug claims records to identify drug dosage anomalies across Hospitals in Ireland, enhancing the Outlier Claims Model</strong></li>
+        <li><strong>Applied Anthropic’s Haiku LLM on 2,000+ customer call transcripts using AWS workflow (S3, Lambda, Transcribe, Bedrock), uncovering key insights for Cancellations and travel related calls</strong></li>
+        <li><strong>Automated reporting using VBA and Oracle PL/SQL, improving workflow efficiency and maintaining strong data governance</strong></li>
     </ul>
-    <h3>Alembic Pharmaceutical – Market Data Analyst | Shillong, India | Dec 2022 – Jul 2023</h3>
+    <h3><strong>Alembic Pharmaceutical – Market Data Analyst | Shillong, India | Dec 2022 – Jul 2023</strong></h3>
     <ul>
-        <li>Analyzed regional prescription and sales data for Azithral and Leveta-M to identify usage patterns, target segments, and high-potential prescribers</li>
-        <li>Applied statistical analysis and machine learning techniques (clustering, regression) to evaluate prescription behavior and guide promotional strategies</li>
-        <li>Collaborated with sales and marketing teams to align data-driven insights with business strategy, contributing to a 110% quarterly growth</li>
+        <li><strong>Analyzed regional prescription and sales data for Azithral and Leveta-M to identify usage patterns, target segments, and high-potential prescribers</strong></li>
+        <li><strong>Applied statistical analysis and machine learning techniques (clustering, regression) to evaluate prescription behavior and guide promotional strategies</strong></li>
+        <li><strong>Collaborated with sales and marketing teams to align data-driven insights with business strategy, contributing to a 110% quarterly growth</strong></li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
-# Projects Section - AtliQ Hardware project with your GitHub image
+# Projects Section - unchanged
 st.markdown("<div class='section-card' id='projects'><h2>Projects</h2>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
@@ -323,7 +322,7 @@ with col6:
 
 st.markdown("</div>", unsafe_allow_html=True)
 
-# Skills Section
+# Skills Section (unchanged)
 st.markdown("""
 <div class='section-card'>
     <h2>Skills</h2>
@@ -456,35 +455,35 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Education Section
+# Education Section - all text bold
 st.markdown("""
 <div class='section-card'>
     <h2>Education</h2>
     <ul>
-        <h3>MSc in Data Analytics</h3>
-        <li>National College of Ireland | Sept 2024 – Oct 2025</li>
-        <li>Modules: Statistics, Data Governance, Business Intelligence, Machine Learning, Deep Learning, Generative AI</li>
-        <li>Research: Enhancing Short-Term Solar Irradiance Prediction Accuracy with SARIMA-LSTM and XGBoost: A Case Study Using the UNISOLAR Dataset</li>
+        <li><strong>MSc in Data Analytics</strong></li>
+        <li><strong>National College of Ireland | Sept 2024 – Oct 2025</strong></li>
+        <li><strong>Modules: Statistics, Data Governance, Business Intelligence, Machine Learning, Deep Learning, Generative AI</strong></li>
+        <li><strong>Research: Enhancing Short-Term Solar Irradiance Prediction Accuracy with SARIMA-LSTM and XGBoost: A Case Study Using the UNISOLAR Dataset</strong></li>
     </ul>
     <ul>
-        <h3>BSc in Statistics (Hons)</h3>
-        <li>St. Anthony’s College | Graduated 2021</li>
+        <li><strong>BSc in Statistics (Hons)</strong></li>
+        <li><strong>St. Anthony’s College | Graduated 2021</strong></li>
     </ul>
-    <h3>Certifications</h3>
+    <h3><strong>Certifications</strong></h3>
     <ul>
-        <li>Data Analytics Bootcamp | Great Learning | Feb 2024</li>
-        <li>Excel, SQL and Power BI | Codebasics | Sep 2023 - Apr 2024</li>
+        <li><strong>Data Analytics Bootcamp | Great Learning | Feb 2024</strong></li>
+        <li><strong>Excel, SQL and Power BI | Codebasics | Sep 2023 - Apr 2024</strong></li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
-# Contact Section
+# Contact Section - all text bold
 st.markdown("""
 <div class='section-card' id='contact'>
     <h2>Contact</h2>
-    <p>📧 pratiksunar0899.ie@gmail.com</p>
-    <p>📞 +353 83 853 8913</p>
-    <p>📍 Dublin, Ireland | Stamp 1G</p>
+    <p><strong>📧 pratiksunar0899.ie@gmail.com</strong></p>
+    <p><strong>📞 +353 83 853 8913</strong></p>
+    <p><strong>📍 Dublin, Ireland | Stamp 1G</strong></p>
 </div>
 """, unsafe_allow_html=True)
 
