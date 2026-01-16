@@ -212,7 +212,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Projects Section - unchanged
+# Projects Section (unchanged)
 st.markdown("<div class='section-card' id='projects'><h2>Projects</h2>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
@@ -461,7 +461,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Education Section - properly indented + all text bold
+# Education Section - all text bold + proper indentation
 st.markdown("""
 <div class='section-card'>
     <h2>Education</h2>
@@ -485,13 +485,13 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Contact Section (unchanged)
+# Contact Section - all text bold
 st.markdown("""
 <div class='section-card' id='contact'>
     <h2>Contact</h2>
-    <p>📧 pratiksunar0899.ie@gmail.com</p>
-    <p>📞 +353 83 853 8913</p>
-    <p>📍 Dublin, Ireland | Stamp 1G</p>
+    <p><strong>📧 pratiksunar0899.ie@gmail.com</strong></p>
+    <p><strong>📞 +353 83 853 8913</strong></p>
+    <p><strong>📍 Dublin, Ireland | Stamp 1G</strong></p>
 </div>
 """, unsafe_allow_html=True)
 
