@@ -193,21 +193,21 @@ st.markdown("""
 
 st.markdown('<a href="#contact" class="contact-btn">Contact Me</a>', unsafe_allow_html=True)
 
-# Experience Section (unchanged)
+# Experience Section - all text bold
 st.markdown("""
 <div class='section-card'>
     <h2>Experience</h2>
-    <h3>VHI Group DAC – Data Analyst Intern | Dublin, Ireland | May 2025 – Aug 2025</h3>
+    <h3><strong>VHI Group DAC – Data Analyst Intern | Dublin, Ireland | May 2025 – Aug 2025</strong></h3>
     <ul>
-        <li>Analyzed 30k healthcare and drug claims records to identify drug dosage anomalies across Hospitals in Ireland, enhancing the Outlier Claims Model</li>
-        <li>Applied Anthropic’s Haiku LLM on 2,000+ customer call transcripts using AWS workflow (S3, Lambda, Transcribe, Bedrock), uncovering key insights for Cancellations and travel related calls</li>
-        <li>Automated reporting using VBA and Oracle PL/SQL, improving workflow efficiency and maintaining strong data governance</li>
+        <li><strong>Analyzed 30k healthcare and drug claims records to identify drug dosage anomalies across Hospitals in Ireland, enhancing the Outlier Claims Model</strong></li>
+        <li><strong>Applied Anthropic’s Haiku LLM on 2,000+ customer call transcripts using AWS workflow (S3, Lambda, Transcribe, Bedrock), uncovering key insights for Cancellations and travel related calls</strong></li>
+        <li><strong>Automated reporting using VBA and Oracle PL/SQL, improving workflow efficiency and maintaining strong data governance</strong></li>
     </ul>
-    <h3>Alembic Pharmaceutical – Market Data Analyst | Shillong, India | Dec 2022 – Jul 2023</h3>
+    <h3><strong>Alembic Pharmaceutical – Market Data Analyst | Shillong, India | Dec 2022 – Jul 2023</strong></h3>
     <ul>
-        <li>Analyzed regional prescription and sales data for Azithral and Leveta-M to identify usage patterns, target segments, and high-potential prescribers</li>
-        <li>Applied statistical analysis and machine learning techniques (clustering, regression) to evaluate prescription behavior and guide promotional strategies</li>
-        <li>Collaborated with sales and marketing teams to align data-driven insights with business strategy, contributing to a 110% quarterly growth</li>
+        <li><strong>Analyzed regional prescription and sales data for Azithral and Leveta-M to identify usage patterns, target segments, and high-potential prescribers</strong></li>
+        <li><strong>Applied statistical analysis and machine learning techniques (clustering, regression) to evaluate prescription behavior and guide promotional strategies</strong></li>
+        <li><strong>Collaborated with sales and marketing teams to align data-driven insights with business strategy, contributing to a 110% quarterly growth</strong></li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
@@ -461,7 +461,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Education Section - properly indented with bold headings
+# Education Section - properly indented + all text bold
 st.markdown("""
 <div class='section-card'>
     <h2>Education</h2>
