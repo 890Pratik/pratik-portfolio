@@ -1,25 +1,31 @@
-
 import streamlit as st
 
 # Page Config
 st.set_page_config(page_title="Pratik Sunar | Data Analyst", layout="wide", initial_sidebar_state="collapsed")
 
+# === SINGLE CLEAN CSS BLOCK ===
 st.markdown("""
 <style>
-    .stApp {background-color: #f9f5f0;}
-    .main-container {max-width: 1200px; margin: auto; padding: 20px;}
+    .stApp {
+        background-color: #f9f5f0;
+    }
+    .main-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+    }
 
-    /* ===== FIXED SECTION CARD (IMPORTANT) ===== */
+    /* FIXED CARD - solid white background + visibility force */
     .section-card {
         background-color: #ffffff !important;
         border-radius: 20px;
         padding: 30px;
         margin: 30px 0;
-        box-shadow: 0 0 20px rgba(0, 191, 191, 0.35);
-        opacity: 1 !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+        border: 1px solid #eee !important; /* subtle border helps iOS */
     }
 
-    /* FORCE TEXT VISIBILITY (iOS / WhatsApp FIX) */
+    /* Force text visibility on all elements inside cards */
     .section-card,
     .section-card h1,
     .section-card h2,
@@ -29,15 +35,23 @@ st.markdown("""
     .section-card strong {
         color: #222 !important;
         opacity: 1 !important;
+        visibility: visible !important;
     }
 
-    .section-card * {
-        opacity: 1 !important;
+    .social-icons {
+        display: flex;
+        justify-content: flex-start;
+        gap: 30px;
+        margin: 20px 0;
     }
-
-    .social-icons {display: flex; justify-content: flex-start; gap: 30px; margin: 20px 0;}
-    .social-icon {width: 40px; height: 40px; border-radius: 50%; background: #e0f7fa; padding: 10px; box-shadow: 0 0 10px rgba(0,191,191,0.3);}
-
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #e0f7fa;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0,191,191,0.3);
+    }
     .contact-btn {
         background: linear-gradient(135deg, #0066cc, #004080);
         color: white !important;
@@ -51,12 +65,11 @@ st.markdown("""
         text-decoration: none;
         box-shadow: 0 0 15px rgba(0,102,204,0.4);
     }
-
     h1 {color: #333; margin-bottom: 10px;}
     h2 {text-align: center; color: #00a0a0; margin-bottom: 20px;}
     ul {text-align: left; max-width: 700px; margin: auto; list-style-type: disc;}
     li {margin-bottom: 10px;}
-
+    .project-link {color: #00a0a0; text-decoration: none;}
     .intro-text {
         font-size: 1.1rem;
         line-height: 1.6;
@@ -66,24 +79,13 @@ st.markdown("""
         hyphens: auto;
     }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-        .main-container {padding: 10px;}
-        .section-card {padding: 20px;}
-        .intro-text {font-size: 1rem;}
-        .contact-btn {width: 100%; max-width: 200px;}
-    }
-
-    .education-nested {
-        margin-left: 30px;
-        list-style-type: circle;
-    }
-</style>
-""", unsafe_allow_html=True)
-
-
     /* Skills Grid */
-    .skills-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-top: 30px;}
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
     .skill-item {text-align: center;}
     .skill-logo {width: 60px; height: 60px; margin-bottom: 10px;}
     .skill-name {font-weight: bold; color: #333;}
@@ -174,7 +176,7 @@ st.markdown("""
         .project-header {height: 150px;}
         .project-desc {-webkit-line-clamp: 3;}
         .contact-btn {width: 100%; max-width: 200px;}
-        [class*="st-"] {flex-direction: column !important; gap: 20px !important;}
+        [data-testid="stHorizontalBlock"] > div {flex-direction: column !important; gap: 20px !important;}
     }
 
     /* Improved indentation for nested lists in Education */
@@ -185,6 +187,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# ────────────────────────────────────────────────
 # Main Content
 st.markdown("<div class='main-container'>", unsafe_allow_html=True)
 
@@ -194,13 +197,13 @@ col_photo, col_text = st.columns([1, 3], gap="large")
 with col_photo:
     st.markdown("""
     <div style="text-align: center; margin-top: 30px;">
-        <img src="https://raw.githubusercontent.com/890Pratik/pratik-portfolio/main/profile.png" 
-             alt="Pratik Sunar" 
-             style="width: 220px; 
-                    height: 220px; 
-                    border-radius: 50%; 
-                    object-fit: cover; 
-                    border: 6px solid #e0f7fa; 
+        <img src="https://raw.githubusercontent.com/890Pratik/pratik-portfolio/main/profile.png"
+             alt="Pratik Sunar"
+             style="width: 220px;
+                    height: 220px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 6px solid #e0f7fa;
                     box-shadow: 0 10px 30px rgba(0,191,191,0.4);">
     </div>
     """, unsafe_allow_html=True)
