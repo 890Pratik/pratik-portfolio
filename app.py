@@ -4,23 +4,43 @@ import streamlit as st
 # Page Config
 st.set_page_config(page_title="Pratik Sunar | Data Analyst", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS (your original with mobile responsiveness)
 st.markdown("""
 <style>
     .stApp {background-color: #f9f5f0;}
     .main-container {max-width: 1200px; margin: auto; padding: 20px;}
+
+    /* ===== FIXED SECTION CARD (IMPORTANT) ===== */
     .section-card {
-        background: rgba(255,255,255,0.95);
+        background-color: #ffffff !important;
         border-radius: 20px;
         padding: 30px;
         margin: 30px 0;
-        box-shadow: 0 0 20px rgba(0, 191, 191, 0.5);
+        box-shadow: 0 0 20px rgba(0, 191, 191, 0.35);
+        opacity: 1 !important;
     }
+
+    /* FORCE TEXT VISIBILITY (iOS / WhatsApp FIX) */
+    .section-card,
+    .section-card h1,
+    .section-card h2,
+    .section-card h3,
+    .section-card p,
+    .section-card li,
+    .section-card strong {
+        color: #222 !important;
+        opacity: 1 !important;
+    }
+
+    .section-card * {
+        opacity: 1 !important;
+    }
+
     .social-icons {display: flex; justify-content: flex-start; gap: 30px; margin: 20px 0;}
     .social-icon {width: 40px; height: 40px; border-radius: 50%; background: #e0f7fa; padding: 10px; box-shadow: 0 0 10px rgba(0,191,191,0.3);}
+
     .contact-btn {
         background: linear-gradient(135deg, #0066cc, #004080);
-        color: white;
+        color: white !important;
         padding: 15px 40px;
         border-radius: 50px;
         font-size: 1.2rem;
@@ -31,19 +51,36 @@ st.markdown("""
         text-decoration: none;
         box-shadow: 0 0 15px rgba(0,102,204,0.4);
     }
+
     h1 {color: #333; margin-bottom: 10px;}
     h2 {text-align: center; color: #00a0a0; margin-bottom: 20px;}
     ul {text-align: left; max-width: 700px; margin: auto; list-style-type: disc;}
     li {margin-bottom: 10px;}
-    .project-link {color: #00a0a0; text-decoration: none;}
+
     .intro-text {
-        font-size: 1.1rem; 
-        line-height: 1.6; 
+        font-size: 1.1rem;
+        line-height: 1.6;
         color: #555;
         word-wrap: break-word;
         overflow-wrap: break-word;
         hyphens: auto;
     }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .main-container {padding: 10px;}
+        .section-card {padding: 20px;}
+        .intro-text {font-size: 1rem;}
+        .contact-btn {width: 100%; max-width: 200px;}
+    }
+
+    .education-nested {
+        margin-left: 30px;
+        list-style-type: circle;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 
     /* Skills Grid */
     .skills-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-top: 30px;}
