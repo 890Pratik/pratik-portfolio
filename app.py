@@ -244,7 +244,7 @@ st.markdown("""
         <li><strong>Applied Anthropic’s Haiku LLM on 2,000+ customer call transcripts using AWS workflow (S3, Lambda, Transcribe, Bedrock), uncovering key insights for Cancellations and travel related calls</strong></li>
         <li><strong>Automated reporting using VBA and Oracle PL/SQL, improving workflow efficiency and maintaining strong data governance</strong></li>
     </ul>
-    <h3><strong>Alembic Pharmaceutical – Market Data Analyst | Shillong, India | Dec 2022 – Jan 2024</strong></h3>
+    <h3><strong>Alembic Pharmaceutical – Market Data Analyst | Shillong, India | Dec 2022 – Apr 2024</strong></h3>
     <ul>
         <li><strong>Analyzed regional prescription and sales data for Azithral and Leveta-M to identify usage patterns, target segments, and high-potential prescribers</strong></li>
         <li><strong>Applied statistical analysis and machine learning techniques (clustering, regression) to evaluate prescription behavior and guide promotional strategies</strong></li>
