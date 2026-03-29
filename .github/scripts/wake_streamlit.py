@@ -1,0 +1,32 @@
+name: Keep Portfolio Awake
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'     # Runs every 6 hours
+  workflow_dispatch:
+
+jobs:
+  wake-up:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 8
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Playwright and system dependencies
+        run: |
+          pip install playwright
+          playwright install chromium
+          sudo apt-get update -qq
+          sudo apt-get install -y libnss3 libatk-bridge2.0-0 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libasound2
+
+      - name: Wake up the Streamlit App
+        env:
+          STREAMLIT_URL: ${{ secrets.STREAMLIT_URL }}
+        run: python .github/scripts/wake_streamlit.py
