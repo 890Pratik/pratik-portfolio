@@ -1,32 +1,32 @@
-name: Keep Portfolio Awake
+import os
+import time
+from playwright.sync_api import sync_playwright
 
-on:
-  schedule:
-    - cron: '0 */6 * * *'     # Runs every 6 hours
-  workflow_dispatch:
+url = os.getenv("STREAMLIT_URL")
+if not url:
+    print("❌ STREAMLIT_URL secret is missing!")
+    exit(1)
 
-jobs:
-  wake-up:
-    runs-on: ubuntu-22.04
-    timeout-minutes: 8
+print(f"🔄 Visiting: {url}")
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    
+    page.goto(url, wait_until="networkidle", timeout=60000)
+    time.sleep(8)
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+    try:
+        button = page.get_by_role("button", name="Yes, get this app back up!")
+        if button.is_visible(timeout=5000):
+            print("⏰ App is sleeping → Clicking wake-up button...")
+            button.click()
+            time.sleep(12)
+            print("✅ Wake-up button clicked! App should now be awake.")
+        else:
+            print("✅ App appears to be already awake.")
+    except Exception as e:
+        print(f"Note: Could not find wake button (likely already awake). Error: {e}")
 
-      - name: Install Playwright and system dependencies
-        run: |
-          pip install playwright
-          playwright install chromium
-          sudo apt-get update -qq
-          sudo apt-get install -y libnss3 libatk-bridge2.0-0 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libasound2
-
-      - name: Wake up the Streamlit App
-        env:
-          STREAMLIT_URL: ${{ secrets.STREAMLIT_URL }}
-        run: python .github/scripts/wake_streamlit.py
+    browser.close()
+    print("✅ Workflow completed successfully.")
