@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install Playwright and system dependencies
+      - name: Install Playwright and dependencies
         run: |
           pip install playwright
           playwright install chromium
