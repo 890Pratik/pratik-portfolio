@@ -1,0 +1,59 @@
+name: Keep Portfolio Awake
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # Runs every 6 hours
+  workflow_dispatch:        # Allows you to run it manually
+
+jobs:
+  wake-up:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install playwright
+          playwright install chromium --with-deps
+
+      - name: Wake up the app
+        env:
+          STREAMLIT_URL: ${{ secrets.STREAMLIT_URL }}
+        run: |
+          python -c '
+import os
+import time
+from playwright.sync_api import sync_playwright
+
+url = os.getenv("STREAMLIT_URL")
+if not url:
+    print("Error: STREAMLIT_URL not set")
+    exit(1)
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    print(f"Visiting: {url}")
+    page.goto(url, wait_until="networkidle", timeout=60000)
+    time.sleep(10)
+
+    try:
+        button = page.get_by_role("button", name="Yes, get this app back up!")
+        if button.is_visible():
+            print("App is sleeping - clicking wake up button...")
+            button.click()
+            time.sleep(12)
+            print("Wake up button clicked!")
+        else:
+            print("App is already awake.")
+    except:
+        print("Could not find wake button (likely already awake)")
+
+    browser.close()
+          '
